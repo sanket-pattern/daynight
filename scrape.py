@@ -16,9 +16,10 @@ for symbol in symbol_list:
     df3=pd.concat([df1,df2])
     df3.to_csv("Data//"+symbol+".csv")
 for symbol in symbol_list:
-    "==========================================================================================================="
+    print("===========================================================================================================")
     print(symbol)
     url=urllib.request.urlopen("https://finance.yahoo.com/quote/"+symbol+".BO/history?period1=1459621800&period2=1491157800&interval=1d&filter=history&frequency=1d")
+
     html=url.read()
     url.close()
     soup = BeautifulSoup(html,"html.parser")
