@@ -9,9 +9,12 @@ from multiprocessing import Pool
 import pickle
 import urllib.request
 price=dict()
-with open('bloomber_list.pkl', 'rb') as f:
-    bloomberg_list=pickle.load(f)
+f=open("final_list","r")
+bloomberg_list=f.read().split("\n")
+bloomberg_list.remove('')
 
+
+# print(set(bloomberg_list))
 def get_current_price(symbol):
     url=urllib.request.urlopen("https://www.bloomberg.com/quote/"+symbol+":IN")
     html=url.read()
@@ -28,18 +31,18 @@ def get_current_price(symbol):
 
 
 def multi_fetch():
+    print("hello world")
     pool = Pool(os.cpu_count())
     pool.map(get_current_price, bloomberg_list)
     print(price)
+def hello():
+    print("Hello")
 
 if __name__ == '__main__':
-    multi_fetch()
-# def hello():
-#     print("Hello")
-# schedule.clear()
-# schedule.every().day.at("00:40").do(hello)
+    schedule.clear()
+    schedule.every().day.at("13:19").do(multi_fetch)
+    # schedule.every().day.at("01:14").do(multi_fetch)
 
-
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)

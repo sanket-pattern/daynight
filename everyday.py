@@ -1,16 +1,32 @@
-import schedule
-import time
 
-def job():
-    print("I'm working...")
+# import pandas as pd
+# # f=open("symbols.txt","r")
+# # l=f.read().split(",")
+# # l.remove('')
+# # symbols=pd.read_csv('Symbols.csv')
+# # sym=symbols['Symbol']
+# # # symbol_list=sorted(list(sym)+['ADANIENT','BALRAMCHIN','CHAMBLFERT'])
+# # # print(symbol_list)
+# # # print(set(symbol_list).difference(set(l)))
+# # str="DALMIABHA DBEL https://www.bloomberg.com/quote/DBEL:IN"
+# # if(str[-2:]=="IN"):
+# #     print(str)
+# f=open("links","r")
+# t=f.read().split("\n")
+# for link in t:
+#     if(link[-2:]!="IN"):
+#         print(link)
+import pickle
+with open('bloomber_list.pkl', 'rb') as f:
+    l = pickle.load(f)
 
-# schedule.every(10).minutes.do(job)
-# schedule.every().hour.do(job)
-schedule.clear()
-schedule.every().day.at("00:36").do(job)
-# schedule.every().monday.do(job)
-# schedule.every().wednesday.at("13:15").do(job)
+l=l+["ATLP","AIAE","GDPL","NJCC","PI","SBIN","STR","BIL"]
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+l.remove('')
+l.remove('')
+l.remove('')
+l=sorted(set(l))
+f=open("final_list","w")
+for item in l:
+  f.write("%s\n" % item)
+
