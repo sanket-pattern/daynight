@@ -1,5 +1,5 @@
 
-# import pandas as pd
+import pandas as pd
 # # f=open("symbols.txt","r")
 # # l=f.read().split(",")
 # # l.remove('')
@@ -17,16 +17,7 @@
 #     if(link[-2:]!="IN"):
 #         print(link)
 import pickle
-with open('bloomber_list.pkl', 'rb') as f:
-    l = pickle.load(f)
-
-l=l+["ATLP","AIAE","GDPL","NJCC","PI","SBIN","STR","BIL"]
-
-l.remove('')
-l.remove('')
-l.remove('')
-l=sorted(set(l))
-f=open("final_list","w")
-for item in l:
-  f.write("%s\n" % item)
-
+table=[["ABC",123], ["TEX",234]]
+header=["Symbol","Price"]
+df=pd.DataFrame(table,columns=header)
+print(df)

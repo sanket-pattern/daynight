@@ -4,27 +4,6 @@ import operator
 import pandas as pd
 import pickle
 files=os.listdir("Data")
-# for symbol in files:
-#     print("======================"+symbol+"==========================================")
-#     data=pd.read_csv("Data//"+symbol)
-#     data.set_index(['Date'],inplace=True)
-#     dates=data.index.values
-#     ret_list=[]
-#     for date in dates:
-#         open=data.ix[date,'Open']
-#         close=data.ix[date,'Close']
-#         # print("Open",open)
-#         # print("Close",close)
-#         if open==0 and close==0:
-#             pct_change=999
-#         else:
-#             pct_change=(close-open)/open*100
-#         ret_list.append(pct_change)
-#     arr=np.array(ret_list)
-#     print(arr)
-#     data['Pct_change_OC']=arr
-#     print(data)
-#     data.to_csv("PCT_CHANGE//"+symbol)
 
 cash=100000
 return_dict=dict()

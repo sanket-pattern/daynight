@@ -23,8 +23,6 @@ symbol_list=list(sym)+['ADANIENT','BALRAMCHIN','CHAMBLFERT']
 bloomberg_symbol_list=[]
 # with open('bloomber_list.pkl', 'wb') as f:
 #     pickle.dump(bloomberg_symbol_list, f)
-print
-
 def get_symbol(symbol):
     driver = webdriver.Chrome("chromedriver.exe")
     driver.get("https://www.google.co.in/")
