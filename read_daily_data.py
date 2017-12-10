@@ -62,7 +62,7 @@ def fetch_close():
 
 if __name__ == '__main__':
 
-    schedule.every().day.at("9:15").do(fetch_open)
+    schedule.every().day.at("00:37").do(fetch_open)
     schedule.every().day.at("03:24").do(fetch_close)
 
     while True:
